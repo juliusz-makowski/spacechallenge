@@ -1,6 +1,6 @@
 package pl.juliuszmakowksi;
 
-public class Rocket extends SpaceShip{
+public class Rocket implements SpaceShip{
     // field
 
     int cost;
