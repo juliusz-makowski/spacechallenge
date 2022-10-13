@@ -5,6 +5,9 @@ public class Rocket implements SpaceShip{
 
     int cost;
     double rocketWeight;
+    double maxWeightWithCargo;
+    double launchExplosionChance;
+    double landingExplosionChance;
 
     //methods
 
