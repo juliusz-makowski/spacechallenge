@@ -6,21 +6,38 @@ import java.util.Scanner;
 
 public class Simulation {
 
-public ArrayList<String> loadItems(String path) throws Exception{
+public ArrayList<Item> loadItems(String path) throws Exception{
 
     File file = new File(path);
     Scanner scanner = new Scanner(file);
-    ArrayList<String> list = new ArrayList<String>();
+    ArrayList<Item> itemList = new ArrayList<>();
 
     while(scanner.hasNextLine()){
-        list.add(scanner.next());
-    }
-    return list;
-}
-public ArrayList<String> loadU1(ArrayList<String> list){
+        String zet = scanner.nextLine();
 
+        String[] token = zet.split("=");
+
+        itemList.add ( new Item(token[0], Integer.parseInt(token[1])));
+    }
+    return itemList;
+}
+public ArrayList<U1> loadU1(ArrayList<Item> list){
+
+    ArrayList<U1> u1 = new ArrayList<>();
 
     int size = list.size();
+    int total = 0;
+
+    for(Item item: list){
+       int mass = item.getWeight();
+       total += mass;
+
+        if (total <= u1.rocketCarriageWeight();){
+            u1.add(item);
+        }
+
+    }
+
 }
 
 
